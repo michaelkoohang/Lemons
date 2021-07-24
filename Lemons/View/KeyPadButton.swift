@@ -1,9 +1,3 @@
-//
-//  KeyPadButton.swift
-//  Bearish
-//
-//  Created by Michael Koohang on 7/12/21.
-//
 
 import SwiftUI
 

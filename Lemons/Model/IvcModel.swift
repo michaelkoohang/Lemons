@@ -1,30 +1,24 @@
-//
-//  InvestmentCalculatorModel.swift
-//  Bearish
-//
-//  Created by Michael Koohang on 7/12/21.
-//
 
 import SwiftUI
 
-enum IvcValues {
-    case OCF
-    case MCE
-    case FGR
-    case DROR
-    case YEARS
-}
-
 class IvcModel: ObservableObject {
     
-    @Published var operatingCashFlow: Double = 0.0
-    @Published var maintenanceCapitalExpenditure: Double = 0.0
-    @Published var futureGrowthRate: Double = 0.0
-    @Published var desiredRateOfReturn: Double = 0.0
-    @Published var numOfYears: Double = 0.0
+    let operatingCashFlowTitle = "Operating Cash Flow"
+    let maintenanceCapitalExpendituresTitle = "Maintenance Capital Expenditures"
+    let futureGrowthRateTitle = "Future Growth Rate"
+    let desiredRateOfReturnTitle = "Desired Rate of Return"
+    let numOfYearsTitle = "Number of Years"
+    let outstandingSharesTitle = "Outstanding Shares"
     
-    @Published var result: [Double] = []
-    @Published var discount: [Double] = []
+    @Published var operatingCashFlow: Double = 50000.0
+    @Published var maintenanceCapitalExpenditure: Double = 20000.0
+    @Published var futureGrowthRate: Double = 15.0
+    @Published var desiredRateOfReturn: Double = 10.0
+    @Published var numOfYears: Double = 10
+    @Published var outstandingShares: Double = 1000000
+
+    @Published var result: [Datum] = []
+    @Published var discount: [Datum] = []
     @Published var intrinsicValue: Double = 0.0
     @Published var currentEntryType: EntryType = .CASH
     @Published var currentValue: IvcValues = .OCF
@@ -37,25 +31,36 @@ class IvcModel: ObservableObject {
         let futGrowRate = futureGrowthRate / 100
         let ror = desiredRateOfReturn / 100
         let numYears = Int(numOfYears)
-        var cum = 0.0
+        var cummulative = 0.0
         
         for i in 1...numYears {
             if (i == 1) {
-                cum = (cashFlow - mainCapExp)
-                discount.append(getDiscount(num: cum, interest: ror, year: i))
-                result.append(cum)
+                cummulative = (cashFlow - mainCapExp)
             } else {
-                cum = cum + cum * futGrowRate
-                discount.append(getDiscount(num: cum, interest: ror, year: i))
-                result.append(cum)
+                cummulative = cummulative + cummulative * futGrowRate
             }
+            discount.append(
+                Datum(year: getYear(offset: i), amount: getDiscount(num: cummulative, interest: ror, year: i))
+            )
+            result.append(
+                Datum(year: getYear(offset: i), amount: cummulative)
+            )
         }
         
-        intrinsicValue = round(discount.reduce(0, { x, y in x + y }) + (discount[discount.count - 1] * 10))
+        intrinsicValue = round(discount.reduce(0, { x, y in x + y.amount }) + (discount[discount.count - 1].amount * 10))
     }
     
     func getDiscount(num: Double, interest: Double, year: Int) -> Double {
         return (num / pow((1.0+interest), Double(year)))
+    }
+    
+    func allowCalculation() -> Bool {
+        return operatingCashFlow > 0 && maintenanceCapitalExpenditure > 0 && futureGrowthRate > 0 && desiredRateOfReturn > 0 && numOfYears > 0 && outstandingShares > 0
+    }
+    
+    func getYear(offset: Int) -> Int {
+        let calendar = Calendar(identifier: .gregorian)
+        return calendar.component(.year, from: Date()) + offset
     }
     
 }

@@ -24,7 +24,7 @@ struct EntryFormatter {
     }
     
     static func formatPercent(val: Double) -> String {
-        let num = NSNumber(value: val)
+        let num = NSNumber(value: val/100)
         return percentFormatter.string(from: num)!
     }
     

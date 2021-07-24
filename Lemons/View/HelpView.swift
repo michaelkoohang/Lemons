@@ -14,23 +14,26 @@ struct HelpView: View {
     
     var body: some View {
         ScrollView {
-            ForEach(info, id: \.self) { block in
-                if (block["title"]!.count > 0) {
-                    Text(block["title"]!)
-                        .font(Font.system(size: 21, weight: .medium, design: .default))
+            VStack(alignment: .leading, spacing: 16) {
+                ForEach(info, id: \.self) { block in
+                    if (block["title"]!.count > 0) {
+                        Text(block["title"]!)
+                            .font(.headline)
+                            .padding(EdgeInsets(top: 12, leading: 0, bottom: 0, trailing: 0))
+                    }
+                    Text(block["text"]!)
+                        .font(.subheadline)
                 }
-                Text(block["text"]!)
-                    .frame(maxHeight: 80)
-                    .lineLimit(10)
             }
+            .padding()
         }
-        .padding()
         .navigationTitle(title)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-//struct HelpView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HelpView(title: "Test", info: ["Test"])
-//    }
-//}
+struct HelpView_Previews: PreviewProvider {
+    static var previews: some View {
+        HelpView(title: "Test", info: [["title": "Heading", "text": "Body"]])
+    }
+}

@@ -53,5 +53,11 @@ let helpInfo: [String:[[String:String]]] = [
             "title": "",
             "text": "The rate of return you want with this investment."
         ]
+    ],
+    "Outstanding Shares": [
+        [
+            "title": "",
+            "text": "The number of shares currently available for sale."
+        ]
     ]
 ]

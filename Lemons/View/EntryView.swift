@@ -1,116 +1,148 @@
 
 import SwiftUI
 
-enum EntryType {
-    case CASH
-    case PERCENT
-    case NUMBER
-}
-
 struct EntryView: View {
     
+    @Environment(\.presentationMode) var presentationMode
     @ObservedObject var ivcModel: IvcModel
     @State var value: String = ""
+    @State var decimalPlacesUsed: Int = 0
 
     var body: some View {
-        VStack {
-            Spacer()
-            Text("")
-                .frame(maxWidth: .infinity, minHeight: 80)
-                .lineLimit(1)
-                .foregroundColor(.clear)
-                .background(
-                    LinearGradient(gradient: Gradient(colors: [.blue, .green]), startPoint: .leading, endPoint: .trailing)
-                        .mask(
-                            Text(value.count > 0 ? value : "Enter a #")
-                            .minimumScaleFactor(0.6)
-                            .font(Font.system(size: 72, weight: .semibold, design: .default)
-                        )
-                    )
-                )
-                .padding()
-            
-            Spacer()
+        NavigationView {
             VStack {
-                HStack {
-                    KeyPadButton(char: "1", action: {keyPressed(s: "1")})
-                    KeyPadButton(char: "2", action: {keyPressed(s: "2")})
-                    KeyPadButton(char: "3", action: {keyPressed(s: "3")})
-                }
-                HStack {
-                    KeyPadButton(char: "4", action: {keyPressed(s: "4")})
-                    KeyPadButton(char: "5", action: {keyPressed(s: "5")})
-                    KeyPadButton(char: "6", action: {keyPressed(s: "6")})
+                Spacer()
+                Text(getFormattedValue())
+                    .font(Font.system(size: 72, weight: .semibold, design: .default))
+                    .frame(maxWidth: .infinity, minHeight: 80)
+                    .minimumScaleFactor(0.6)
+                    .lineLimit(1)
+                    .padding()
+                Spacer()
+                VStack {
+                    HStack {
+                        KeyPadButton(char: "1", action: {keyPressed(s: "1")})
+                        KeyPadButton(char: "2", action: {keyPressed(s: "2")})
+                        KeyPadButton(char: "3", action: {keyPressed(s: "3")})
+                    }
+                    HStack {
+                        KeyPadButton(char: "4", action: {keyPressed(s: "4")})
+                        KeyPadButton(char: "5", action: {keyPressed(s: "5")})
+                        KeyPadButton(char: "6", action: {keyPressed(s: "6")})
 
-                }
-                HStack {
-                    KeyPadButton(char: "7", action: {keyPressed(s: "7")})
-                    KeyPadButton(char: "8", action: {keyPressed(s: "8")})
-                    KeyPadButton(char: "9", action: {keyPressed(s: "9")})
-                }
-                HStack {
-                    KeyPadButton(char: ".", action: {keyPressed(s: ".")})
-                    KeyPadButton(char: "0", action: {keyPressed(s: "0")})
-                    KeyPadButton(char: "", image: "delete.left", action: {keyPressed(s: "<")})
-                }
-            }
-            .padding(EdgeInsets(top: 0, leading: 0, bottom: 32, trailing: 0))
-            VStack {
-                HStack {
-                    Button(action: {
-                        
-                    }) {
-                        Text("Save")
-                            .frame(maxWidth: .infinity, minHeight: 50, alignment: .center)
-                            .background(Color.green)
-                            .foregroundColor(.white)
-                            .font(Font.system(size: 17, weight: .semibold, design: .default))
-                            .cornerRadius(15, antialiased: true)
-                            
                     }
-                    .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 4))
-                    Button(action: {
-                        
-                    }) {
-                        Text("Cancel")
-                            .frame(maxWidth: .infinity, minHeight: 50, alignment: .center)
-                            .background(Color.red)
-                            .foregroundColor(.white)
-                            .font(Font.system(size: 17, weight: .semibold, design: .default))
-                            .cornerRadius(15, antialiased: true)
-                            
+                    HStack {
+                        KeyPadButton(char: "7", action: {keyPressed(s: "7")})
+                        KeyPadButton(char: "8", action: {keyPressed(s: "8")})
+                        KeyPadButton(char: "9", action: {keyPressed(s: "9")})
                     }
-                    .padding(EdgeInsets(top: 16, leading: 4, bottom: 16, trailing: 16))
+                    HStack {
+                        KeyPadButton(char: ".", action: {keyPressed(s: ".")})
+                            .disabled(value.contains(".") || value.count < 1 || ivcModel.currentEntryType == .NUMBER)
+                        KeyPadButton(char: "0", action: {keyPressed(s: "0")})
+                        KeyPadButton(char: "", image: "delete.left", action: {keyPressed(s: "<")})
+                            .disabled(value.count < 1)
+                    }
                 }
-                
+                Spacer()
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Done")
+                        .frame(maxWidth: .infinity, minHeight: 50, alignment: .center)
+                        .background(Color.green)
+                        .foregroundColor(.white)
+                        .font(Font.system(size: 17, weight: .semibold, design: .default))
+                        .cornerRadius(15, antialiased: true)
+                        
+                }
+                .padding()
             }
-            .background(Color(UIColor.systemBackground)
-                .ignoresSafeArea(.container, edges: .bottom)
-                .shadow(color: Color(UIColor.systemGray3), radius: 10, x: 0.0, y: 0.0)
-            )
-            .frame(maxWidth: .infinity)
+            .navigationTitle(getTitle())
+            .navigationBarTitleDisplayMode(.inline)
         }
-        
+        .onAppear() {
+            value = getSavedValue()
+        }
     }
     
     func keyPressed(s: String) {
-        value.append(s)
+        if s == "<" {
+            if value.contains(".") && value.last != "." {
+                decimalPlacesUsed -= 1
+            }
+            value.removeLast()
+        } else {
+            if value.contains(".") {
+                if decimalPlacesUsed < 2 {
+                    decimalPlacesUsed += 1
+                    value.append(s)
+                }
+            } else {
+                value.append(s)
+            }
+        }
+        
         switch ivcModel.currentValue {
         case .OCF:
-            ivcModel.operatingCashFlow = Double(value)!
+            ivcModel.operatingCashFlow = value.count > 0 ? Double(value)! : 0.0
         case .DROR:
-            ivcModel.desiredRateOfReturn = Double(value)!
+            ivcModel.desiredRateOfReturn = value.count > 0 ? Double(value)! : 0.0
         case .FGR:
-            ivcModel.futureGrowthRate = Double(value)!
+            ivcModel.futureGrowthRate = value.count > 0 ? Double(value)! : 0.0
         case .MCE:
-            ivcModel.maintenanceCapitalExpenditure = Double(value)!
+            ivcModel.maintenanceCapitalExpenditure = value.count > 0 ? Double(value)! : 0.0
         case .YEARS:
-            ivcModel.numOfYears = Double(value)!
+            ivcModel.numOfYears = value.count > 0 ? Double(value)! : 0.0
+        case .OS:
+            ivcModel.outstandingShares = value.count > 0 ? Double(value)! : 0.0
         }
-        print(ivcModel.operatingCashFlow)
-
     }
     
+    func getFormattedValue() -> String {
+        switch ivcModel.currentEntryType {
+        case .CASH:
+            return value.count > 0 ? "$\(value)" : "$0"
+        case .PERCENT:
+            return value.count > 0 ? "\(value)%" : "0%"
+        case .NUMBER:
+            return value.count > 0 ? value : "0"
+        }
+    }
+    
+    func getSavedValue() -> String {
+        switch ivcModel.currentValue {
+        case .OCF:
+            return ivcModel.operatingCashFlow > 0 ? String(ivcModel.operatingCashFlow) + "0" : ""
+        case .DROR:
+            return ivcModel.desiredRateOfReturn > 0 ? String(ivcModel.desiredRateOfReturn) + "0" : ""
+        case .FGR:
+            return ivcModel.futureGrowthRate > 0 ? String(ivcModel.futureGrowthRate) + "0" : ""
+        case .MCE:
+            return ivcModel.maintenanceCapitalExpenditure > 0 ? String(ivcModel.maintenanceCapitalExpenditure) + "0" : ""
+        case .YEARS:
+            return ivcModel.numOfYears > 0 ? String(Int(ivcModel.numOfYears)) : ""
+        case .OS:
+            return ivcModel.outstandingShares > 0 ? String(Int(ivcModel.outstandingShares)) : ""
+        }
+    }
+    
+    func getTitle() -> String {
+        switch ivcModel.currentValue {
+        case .OCF:
+            return ivcModel.operatingCashFlowTitle
+        case .DROR:
+            return ivcModel.desiredRateOfReturnTitle
+        case .FGR:
+            return ivcModel.futureGrowthRateTitle
+        case .MCE:
+            return ivcModel.maintenanceCapitalExpendituresTitle
+        case .YEARS:
+            return ivcModel.numOfYearsTitle
+        case .OS:
+            return ivcModel.outstandingSharesTitle
+        }
+    }
     
 }
 
