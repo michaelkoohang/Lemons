@@ -18,11 +18,11 @@ struct HelpView: View {
                 ForEach(info, id: \.self) { block in
                     if (block["title"]!.count > 0) {
                         Text(block["title"]!)
-                            .font(.headline)
+                            .font(.system(.headline, design: .serif))
                             .padding(EdgeInsets(top: 12, leading: 0, bottom: 0, trailing: 0))
                     }
                     Text(block["text"]!)
-                        .font(.subheadline)
+                        .font(.system(.subheadline, design: .serif))
                 }
             }
             .padding()

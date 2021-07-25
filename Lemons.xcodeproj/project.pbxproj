@@ -23,6 +23,7 @@
 		4CCC923926ACA53E002CE7A6 /* lemonade.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CCC923826ACA53E002CE7A6 /* lemonade.json */; };
 		4CDB03A426ACAEBE00C158E2 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB03A326ACAEBE00C158E2 /* UINavigationController+.swift */; };
 		4CDB03A626ACB23E00C158E2 /* Datum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB03A526ACB23E00C158E2 /* Datum.swift */; };
+		4CDB03A826ACDD2100C158E2 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB03A726ACDD2100C158E2 /* LineChartView.swift */; };
 		4CF541BE26AC8A5500ED5E51 /* EntryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF541BD26AC8A5500ED5E51 /* EntryCard.swift */; };
 		4CF541C026AC8BE700ED5E51 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF541BF26AC8BE700ED5E51 /* ResultView.swift */; };
 		4CF541C226ACA49400ED5E51 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF541C126ACA49400ED5E51 /* LottieView.swift */; };
@@ -50,6 +51,7 @@
 		4CCC923826ACA53E002CE7A6 /* lemonade.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lemonade.json; sourceTree = "<group>"; };
 		4CDB03A326ACAEBE00C158E2 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		4CDB03A526ACB23E00C158E2 /* Datum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datum.swift; sourceTree = "<group>"; };
+		4CDB03A726ACDD2100C158E2 /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
 		4CF541BD26AC8A5500ED5E51 /* EntryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCard.swift; sourceTree = "<group>"; };
 		4CF541BF26AC8BE700ED5E51 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		4CF541C126ACA49400ED5E51 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				4CF541BD26AC8A5500ED5E51 /* EntryCard.swift */,
 				4CF541BF26AC8BE700ED5E51 /* ResultView.swift */,
 				4CF541C126ACA49400ED5E51 /* LottieView.swift */,
+				4CDB03A726ACDD2100C158E2 /* LineChartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				4CF541BE26AC8A5500ED5E51 /* EntryCard.swift in Sources */,
 				4CF541C026AC8BE700ED5E51 /* ResultView.swift in Sources */,
 				4CAD66C8269BA30B00B189FA /* LemonsApp.swift in Sources */,
+				4CDB03A826ACDD2100C158E2 /* LineChartView.swift in Sources */,
 				4C0B68CF269BC8920068BAB9 /* View+.swift in Sources */,
 				4C7023F9269D463500B8FD34 /* HelpInfo.swift in Sources */,
 				4CDB03A426ACAEBE00C158E2 /* UINavigationController+.swift in Sources */,

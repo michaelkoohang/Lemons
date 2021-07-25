@@ -113,13 +113,33 @@ struct EntryView: View {
     func getSavedValue() -> String {
         switch ivcModel.currentValue {
         case .OCF:
-            return ivcModel.operatingCashFlow > 0 ? String(ivcModel.operatingCashFlow) + "0" : ""
+            if ivcModel.operatingCashFlow > 0 {
+                decimalPlacesUsed = 2
+                return String(ivcModel.operatingCashFlow) + "0"
+            } else {
+                return ""
+            }
         case .DROR:
-            return ivcModel.desiredRateOfReturn > 0 ? String(ivcModel.desiredRateOfReturn) + "0" : ""
+            if ivcModel.desiredRateOfReturn > 0 {
+                decimalPlacesUsed = 2
+                return String(ivcModel.desiredRateOfReturn) + "0"
+            } else {
+                return ""
+            }
         case .FGR:
-            return ivcModel.futureGrowthRate > 0 ? String(ivcModel.futureGrowthRate) + "0" : ""
+            if ivcModel.futureGrowthRate > 0 {
+                decimalPlacesUsed = 2
+                return String(ivcModel.futureGrowthRate) + "0"
+            } else {
+                return ""
+            }
         case .MCE:
-            return ivcModel.maintenanceCapitalExpenditure > 0 ? String(ivcModel.maintenanceCapitalExpenditure) + "0" : ""
+            if ivcModel.maintenanceCapitalExpenditure > 0 {
+                decimalPlacesUsed = 2
+                return String(ivcModel.maintenanceCapitalExpenditure) + "0"
+            } else {
+                return ""
+            }
         case .YEARS:
             return ivcModel.numOfYears > 0 ? String(Int(ivcModel.numOfYears)) : ""
         case .OS:

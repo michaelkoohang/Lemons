@@ -10,12 +10,12 @@ class IvcModel: ObservableObject {
     let numOfYearsTitle = "Number of Years"
     let outstandingSharesTitle = "Outstanding Shares"
     
-    @Published var operatingCashFlow: Double = 50000.0
-    @Published var maintenanceCapitalExpenditure: Double = 20000.0
-    @Published var futureGrowthRate: Double = 15.0
-    @Published var desiredRateOfReturn: Double = 10.0
-    @Published var numOfYears: Double = 10
-    @Published var outstandingShares: Double = 1000000
+    @Published var operatingCashFlow: Double = 0
+    @Published var maintenanceCapitalExpenditure: Double = 0
+    @Published var futureGrowthRate: Double = 0
+    @Published var desiredRateOfReturn: Double = 0
+    @Published var numOfYears: Double = 0
+    @Published var outstandingShares: Double = 0
 
     @Published var result: [Datum] = []
     @Published var discount: [Datum] = []
