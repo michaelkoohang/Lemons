@@ -17,7 +17,7 @@ struct EntryCard: View {
                         Spacer()
                         NavigationLink(destination: HelpView(title: title, info: helpInfo[title]!)) {
                             Image(systemName: "questionmark.circle")
-                                .foregroundColor(.primary)
+                                .foregroundColor(.black)
                                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 10))
                         }
                     }
@@ -29,12 +29,12 @@ struct EntryCard: View {
                     HStack {
                         VStack(alignment: .leading) {
                             Text(getValueFormat())
-                                .foregroundColor(.primary)
+                                .foregroundColor(.black)
                                 .font(.system(.title2, design: .serif))
                                 .lineLimit(1)
                                 .minimumScaleFactor(0.7)
                             Text(title.lowercased())
-                                .foregroundColor(.secondary)
+                                .foregroundColor(Color(UIColor.systemGray))
                                 .font(.system(.caption, design: .serif))
                         }
                         Spacer()

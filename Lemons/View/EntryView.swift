@@ -7,6 +7,8 @@ struct EntryView: View {
     @ObservedObject var ivcModel: IvcModel
     @State var value: String = ""
     @State var decimalPlacesUsed: Int = 0
+    
+    let haptics = UISelectionFeedbackGenerator()
 
     var body: some View {
         NavigationView {
@@ -67,6 +69,7 @@ struct EntryView: View {
     }
     
     func keyPressed(s: String) {
+        haptics.selectionChanged()
         if s == "<" {
             if value.contains(".") && value.last != "." {
                 decimalPlacesUsed -= 1
