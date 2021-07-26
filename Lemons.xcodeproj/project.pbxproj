@@ -16,14 +16,18 @@
 		4C7023F6269D45DC00B8FD34 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7023F5269D45DC00B8FD34 /* HelpView.swift */; };
 		4C7023F9269D463500B8FD34 /* HelpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7023F8269D463500B8FD34 /* HelpInfo.swift */; };
 		4CAD66C8269BA30B00B189FA /* LemonsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD66C7269BA30B00B189FA /* LemonsApp.swift */; };
-		4CAD66CA269BA30B00B189FA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD66C9269BA30B00B189FA /* MainView.swift */; };
+		4CAD66CA269BA30B00B189FA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD66C9269BA30B00B189FA /* HomeView.swift */; };
 		4CAD66CC269BA30C00B189FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CAD66CB269BA30C00B189FA /* Assets.xcassets */; };
 		4CAD66CF269BA30C00B189FA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CAD66CE269BA30C00B189FA /* Preview Assets.xcassets */; };
-		4CC9AFEE269C01330037D360 /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC9AFED269C01330037D360 /* EntryView.swift */; };
+		4CC9AFEE269C01330037D360 /* KeyPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC9AFED269C01330037D360 /* KeyPadView.swift */; };
 		4CCC923926ACA53E002CE7A6 /* lemonade.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CCC923826ACA53E002CE7A6 /* lemonade.json */; };
 		4CDB03A426ACAEBE00C158E2 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB03A326ACAEBE00C158E2 /* UINavigationController+.swift */; };
 		4CDB03A626ACB23E00C158E2 /* Datum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB03A526ACB23E00C158E2 /* Datum.swift */; };
 		4CDB03A826ACDD2100C158E2 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB03A726ACDD2100C158E2 /* LineChartView.swift */; };
+		4CE6F82226AEDA52006311F3 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE6F82126AEDA52006311F3 /* UserDefaultsManager.swift */; };
+		4CE6F82426AEDADF006311F3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE6F82326AEDADF006311F3 /* MainView.swift */; };
+		4CE6F82626AEDB49006311F3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE6F82526AEDB49006311F3 /* SettingsView.swift */; };
+		4CE6F82826AEDD09006311F3 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE6F82726AEDD09006311F3 /* AboutView.swift */; };
 		4CF541BE26AC8A5500ED5E51 /* EntryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF541BD26AC8A5500ED5E51 /* EntryCard.swift */; };
 		4CF541C026AC8BE700ED5E51 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF541BF26AC8BE700ED5E51 /* ResultView.swift */; };
 		4CF541C226ACA49400ED5E51 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF541C126ACA49400ED5E51 /* LottieView.swift */; };
@@ -43,15 +47,19 @@
 		4C7023F8269D463500B8FD34 /* HelpInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpInfo.swift; sourceTree = "<group>"; };
 		4CAD66C4269BA30B00B189FA /* Lemons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lemons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAD66C7269BA30B00B189FA /* LemonsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LemonsApp.swift; sourceTree = "<group>"; };
-		4CAD66C9269BA30B00B189FA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		4CAD66C9269BA30B00B189FA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4CAD66CB269BA30C00B189FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CAD66CE269BA30C00B189FA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4CAD66D0269BA30C00B189FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4CC9AFED269C01330037D360 /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
+		4CC9AFED269C01330037D360 /* KeyPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPadView.swift; sourceTree = "<group>"; };
 		4CCC923826ACA53E002CE7A6 /* lemonade.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lemonade.json; sourceTree = "<group>"; };
 		4CDB03A326ACAEBE00C158E2 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		4CDB03A526ACB23E00C158E2 /* Datum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datum.swift; sourceTree = "<group>"; };
 		4CDB03A726ACDD2100C158E2 /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
+		4CE6F82126AEDA52006311F3 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		4CE6F82326AEDADF006311F3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		4CE6F82526AEDB49006311F3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		4CE6F82726AEDD09006311F3 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		4CF541BD26AC8A5500ED5E51 /* EntryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCard.swift; sourceTree = "<group>"; };
 		4CF541BF26AC8BE700ED5E51 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		4CF541C126ACA49400ED5E51 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
@@ -104,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				4C7023F3269D3FCE00B8FD34 /* EntryFormatter.swift */,
+				4CE6F82126AEDA52006311F3 /* UserDefaultsManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -111,13 +120,15 @@
 		4C7023F7269D45E400B8FD34 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4C7023ED269CEF1500B8FD34 /* KeyPadButton.swift */,
-				4CC9AFED269C01330037D360 /* EntryView.swift */,
-				4C7023F5269D45DC00B8FD34 /* HelpView.swift */,
-				4CAD66C9269BA30B00B189FA /* MainView.swift */,
-				4CF541BD26AC8A5500ED5E51 /* EntryCard.swift */,
+				4CE6F82B26AEDF4D006311F3 /* Keypad */,
+				4CE6F82326AEDADF006311F3 /* MainView.swift */,
+				4CAD66C9269BA30B00B189FA /* HomeView.swift */,
+				4CE6F82526AEDB49006311F3 /* SettingsView.swift */,
 				4CF541BF26AC8BE700ED5E51 /* ResultView.swift */,
+				4CE6F82726AEDD09006311F3 /* AboutView.swift */,
+				4C7023F5269D45DC00B8FD34 /* HelpView.swift */,
 				4CF541C126ACA49400ED5E51 /* LottieView.swift */,
+				4CF541BD26AC8A5500ED5E51 /* EntryCard.swift */,
 				4CDB03A726ACDD2100C158E2 /* LineChartView.swift */,
 			);
 			path = View;
@@ -171,6 +182,15 @@
 				4CCC923826ACA53E002CE7A6 /* lemonade.json */,
 			);
 			path = Animations;
+			sourceTree = "<group>";
+		};
+		4CE6F82B26AEDF4D006311F3 /* Keypad */ = {
+			isa = PBXGroup;
+			children = (
+				4C7023ED269CEF1500B8FD34 /* KeyPadButton.swift */,
+				4CC9AFED269C01330037D360 /* KeyPadView.swift */,
+			);
+			path = Keypad;
 			sourceTree = "<group>";
 		};
 		FD477B87A2ACB6713D1ED203 /* Frameworks */ = {
@@ -296,10 +316,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C7023F1269D2CED00B8FD34 /* IvcModel.swift in Sources */,
+				4CE6F82826AEDD09006311F3 /* AboutView.swift in Sources */,
 				4C7023F4269D3FCE00B8FD34 /* EntryFormatter.swift in Sources */,
-				4CC9AFEE269C01330037D360 /* EntryView.swift in Sources */,
-				4CAD66CA269BA30B00B189FA /* MainView.swift in Sources */,
+				4CC9AFEE269C01330037D360 /* KeyPadView.swift in Sources */,
+				4CAD66CA269BA30B00B189FA /* HomeView.swift in Sources */,
 				4C7023F6269D45DC00B8FD34 /* HelpView.swift in Sources */,
+				4CE6F82626AEDB49006311F3 /* SettingsView.swift in Sources */,
 				4C0B68D4269BD6530068BAB9 /* String+.swift in Sources */,
 				4CF541BE26AC8A5500ED5E51 /* EntryCard.swift in Sources */,
 				4CF541C026AC8BE700ED5E51 /* ResultView.swift in Sources */,
@@ -309,9 +331,11 @@
 				4C7023F9269D463500B8FD34 /* HelpInfo.swift in Sources */,
 				4CDB03A426ACAEBE00C158E2 /* UINavigationController+.swift in Sources */,
 				4CF541C226ACA49400ED5E51 /* LottieView.swift in Sources */,
+				4CE6F82226AEDA52006311F3 /* UserDefaultsManager.swift in Sources */,
 				4C7023EE269CEF1500B8FD34 /* KeyPadButton.swift in Sources */,
 				4C34BB3826AB7A5F00C24839 /* Constants.swift in Sources */,
 				4CDB03A626ACB23E00C158E2 /* Datum.swift in Sources */,
+				4CE6F82426AEDADF006311F3 /* MainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

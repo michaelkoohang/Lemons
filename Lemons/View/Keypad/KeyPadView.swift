@@ -1,7 +1,7 @@
 
 import SwiftUI
 
-struct EntryView: View {
+struct KeyPadView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var ivcModel: IvcModel
@@ -171,6 +171,6 @@ struct EntryView: View {
 
 struct KeyPad_Previews: PreviewProvider {
     static var previews: some View {
-        EntryView(ivcModel: IvcModel())
+        KeyPadView(ivcModel: IvcModel())
     }
 }
