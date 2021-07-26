@@ -20,7 +20,7 @@ struct AboutView: View {
                 Text("What It Is")
                     .font(.system(.headline, design: .serif))
                     .padding(EdgeInsets(top: 12, leading: 0, bottom: 0, trailing: 0))
-                Text("Lemons is a calculator that lets you to project the intrinsic value of a company over time. It's really great for understanding what a company is actually worth.")
+                Text("Lemons is a calculator that lets you project the intrinsic value of a company over time. It's really great for understanding what a company is actually worth.")
                     .font(.system(.subheadline, design: .serif))
             }
             .padding()
@@ -32,7 +32,7 @@ struct AboutView: View {
                 Text("How To Use It")
                     .font(.system(.headline, design: .serif))
                     .padding(EdgeInsets(top: 12, leading: 0, bottom: 0, trailing: 0))
-                Text("Find a company you're interested in and look up their investor relations page. Most of information you need is there. Enter the information into the calculator and check out your results!")
+                Text("Find a company you're interested in and look up their investor relations page. Most of the information you need is there. Enter that into the calculator and check out your results!")
                     .font(.system(.subheadline, design: .serif))
             }
             .padding()
